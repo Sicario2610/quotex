@@ -46,7 +46,7 @@ async function sendTelexWebhook(eventName, message, status, username) {
 }
 
 // route to send a quote when "/send-quote" is hit
-app.post("/send-quote", async (req, res) => {
+app.get("/send-quote", async (req, res) => {
     const quoteData = await getQuote();
     if (quoteData) {
         const message = `"${quoteData.quote}" — ${quoteData.author}`;
