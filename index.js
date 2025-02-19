@@ -4,11 +4,12 @@ const express = require('express');
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //Disable SSL/TLS certificate validation
 
 // Function to fetch a random quote
 async function getQuote() {
     try {
+        //Get request to quotable endpoint to get random quotes
         const response = await axios.get('https://api.quotable.io/random');
         const quote = response.data.content;
         const author = response.data.author;
@@ -45,7 +46,7 @@ async function sendTelexWebhook(eventName, message, status, username) {
 }
 
 // route to send a quote when "/send-quote" is hit
-app.get("/send-quote", async (req, res) => {
+app.post("/send-quote", async (req, res) => {
     const quoteData = await getQuote();
     if (quoteData) {
         const message = `"${quoteData.quote}" — ${quoteData.author}`;
