@@ -6,6 +6,13 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //Disable SSL/TLS certificate validation
 
+// Apply CORS middleware
+app.use(cors({
+    origin: '*', // Allow all origins - customize this in production
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
+
 // Function to fetch a random quote
 async function getQuote() {
     try {
