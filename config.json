@@ -1,0 +1,15 @@
+{
+    "name": "quote bot",
+    "app_url": "https://hng-12-stage-3-telex-integration-hdx3kqmcx.vercel.app",
+    "app_logo": "https://logomoose.com/wp-content/uploads/2016/12/Quote.png",
+    "integration_type": "interval",
+    "created": "2025-02-17", 
+    "modified": "2025-02-17", 
+    "target_url": "https://hng-12-stage-3-telex-integration-hdx3kqmcx.vercel.app/send-quote",
+    "author": "Gbonjubola",
+    "tick_url": "https://hng-12-stage-3-telex-integration-hdx3kqmcx.vercel.app/health",
+    "default_values": {
+      "message": "Welcome to the Daily Quote Integration!"
+    }
+  }
+  
