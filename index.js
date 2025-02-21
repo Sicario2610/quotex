@@ -67,6 +67,12 @@ async function sendEmailQuote(quote, author) {
   }
 }
 
+app.get("/", (req, res)=>{
+    res.status(200).json({ 
+        message: "Welcome to QUOTEX"
+      });
+})
+
 // route to send quote via Gmail
 app.get("/send-quote", async (req, res) => {
   const quoteData = await getQuote();
